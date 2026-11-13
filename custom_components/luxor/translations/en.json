@@ -1,18 +1,39 @@
 {
-    "config": {
-        "step": {
-            "user": {
-                "title": "Luxor",
-                "description": "Integration with FXLuminaire's Luxor lighting system.",
-                "data": {
-                    "host": "Host",
-                    "group_interval": "Light Update Interval (sec)",
-                    "theme_interval": "Scene Update Interval (sec)"
-                }
-            }
-        },
-        "error": {
-            "host": "Unable to connect to controller."
-        }
+  "config": {
+    "step": {
+      "user": {
+        "title": "FX Luminaire Luxor",
+        "description": "Enter the IP address of your Luxor controller. Give it a DHCP reservation first so the address doesn't change.",
+        "data": { "host": "Host" },
+        "data_description": { "host": "IP address or hostname of the Luxor controller, e.g. 192.168.60.73" }
+      },
+      "reconfigure": {
+        "title": "Change Luxor controller address",
+        "data": { "host": "Host" }
+      }
+    },
+    "error": {
+      "cannot_connect": "Could not reach the Luxor controller. Check the IP and that Home Assistant can reach it on TCP port 80.",
+      "unknown": "Unexpected error, see the Home Assistant log."
+    },
+    "abort": {
+      "already_configured": "This controller is already configured.",
+      "reconfigure_successful": "Controller address updated."
     }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Luxor options",
+        "data": { "scan_interval": "Poll interval (seconds)" },
+        "data_description": { "scan_interval": "How often to check for changes made outside Home Assistant (facepack schedule, Luxor app). Changes made from Home Assistant show immediately." }
+      }
+    }
+  },
+  "entity": {
+    "button": {
+      "illuminate_all": { "name": "All lights on" },
+      "extinguish_all": { "name": "All lights off" }
+    }
+  }
 }

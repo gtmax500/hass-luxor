@@ -1,6 +1,5 @@
 {
-    "name": "FXLuminaire Luxor",
-    "hacs": "1.25.0",
-    "render_readme": true,
-    "homeassistant": "0.118.0"
+  "name": "FX Luminaire Luxor",
+  "homeassistant": "2025.1.0",
+  "render_readme": true
 }

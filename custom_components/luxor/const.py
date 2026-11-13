@@ -1,25 +1,24 @@
-# Base component constants
-NAME = "FXLuminaire Luxor"
+"""Constants for the FX Luminaire Luxor integration."""
+
+from __future__ import annotations
+
 DOMAIN = "luxor"
-DOMAIN_DATA = f"{DOMAIN}_data"
-VERSION = "0.0.2"
-ISSUE_URL = "https://github.com/dcramer/hass-luxor/issues"
+MANUFACTURER = "FX Luminaire"
 
-# Platforms
-LIGHT = "light"
-SCENE = "scene"
-PLATFORMS = [LIGHT, SCENE]
+# Polling. The controller answers instantly and GroupListGet returns every
+# group in one response, so a 30 s poll is negligible load. Polling only
+# matters for changes made outside Home Assistant (facepack schedule, app).
+DEFAULT_SCAN_INTERVAL = 30
+MIN_SCAN_INTERVAL = 5
+MAX_SCAN_INTERVAL = 3600
 
-# Configuration and options
-CONF_HOST = "host"
-CONF_GROUP_INTERVAL = "group_interval"
-CONF_THEME_INTERVAL = "theme_interval"
+# Seconds to wait before confirming state after a command, so several
+# commands in a row (e.g. an HA scene touching many groups) share one refresh.
+REFRESH_COOLDOWN = 0.5
 
-# Defaults
-DEFAULT_NAME = DOMAIN
-DEFAULT_GROUP_INTERVAL = 60
-DEFAULT_THEME_INTERVAL = 600
+# Per-request timeout in seconds.
+REQUEST_TIMEOUT = 10
 
-# How long to wait to actually do the refresh after requesting it.
-# We wait some time so if we control multiple lights, we batch requests.
-REQUEST_REFRESH_DELAY = 0.3
+# Intensity the controller uses when a light is turned on without a level and
+# we have no previous level to restore.
+DEFAULT_ON_INTENSITY = 100
