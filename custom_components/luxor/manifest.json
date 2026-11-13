@@ -1,12 +1,12 @@
 {
   "domain": "luxor",
   "name": "FX Luminaire Luxor",
-  "codeowners": ["@GITHUB_USER"],
+  "codeowners": ["@gtmax500"],
   "config_flow": true,
-  "documentation": "https://github.com/GITHUB_USER/hass-luxor",
+  "documentation": "https://github.com/gtmax500/hass-luxor",
   "integration_type": "hub",
   "iot_class": "local_polling",
-  "issue_tracker": "https://github.com/GITHUB_USER/hass-luxor/issues",
+  "issue_tracker": "https://github.com/gtmax500/hass-luxor/issues",
   "requirements": [],
   "version": "1.0.0"
 }
